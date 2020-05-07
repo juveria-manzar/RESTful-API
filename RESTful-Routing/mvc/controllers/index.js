@@ -21,6 +21,10 @@ getRestful = function(req, res) {
     res.render('restful', { title: "RESTful Routing Architecture" })
 }
 
+getStatusCodes = function(req, res) {
+    res.render('status-codes', { title: "HTTP Status COde" })
+}
+
 
 
 
@@ -31,5 +35,6 @@ module.exports = {
     putReqExample,
     postReqExample,
     deleteReqExample,
-    getRestful
+    getRestful,
+    getStatusCodes
 }
