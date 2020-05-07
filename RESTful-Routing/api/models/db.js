@@ -28,7 +28,7 @@ mongoose.connection.on('disconnected', () => {
 
 
 const shutdown = (msg, callback) => {
-    mongoose.connection.close( () => {
+    mongoose.connection.close(() => {
         console.log(`Mongoose disconnected through ${msg}`);
         callback();
     });
@@ -55,5 +55,3 @@ process.on('SIGTERM', () => {
         process.exit(0);
     });
 });
-
-

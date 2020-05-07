@@ -5,8 +5,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-require('./mvc/models/db');
+require('./api/models/db');
 var indexRouter = require('./mvc/routes/index');
+var apiRouter = require('./api/routes/index');
 
 var app = express();
 
@@ -22,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-    res.statusCodeJson = function(statusCode, data) {
+    res.statusJson = function(statusCode, data) {
         let obj = {
             ...data,
             statusCode: statusCode,
@@ -33,6 +34,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/', indexRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

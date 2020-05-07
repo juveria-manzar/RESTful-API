@@ -5,7 +5,7 @@ getExample = function(req, res) {
     res.render('example', { title: "Example HTTP Requests" })
 }
 getReqExample = function(req, res) {
-    res.statusCodeJson(200, { message: "User made a GET request" })
+    res.statusJson(200, { message: "User made a GET request" })
 }
 postReqExample = function(req, res) {
     res.json({ message: "User made a POST request" })
