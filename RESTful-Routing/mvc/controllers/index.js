@@ -26,8 +26,6 @@ getStatusCodes = function(req, res) {
 }
 
 
-
-
 module.exports = {
     getIndex,
     getExample,
