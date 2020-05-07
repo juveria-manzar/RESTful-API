@@ -12,7 +12,7 @@ getCountries = function(req, res, next) {
 }
 
 getCountryForm = function(req, res, next) {
-    res.statusJson(200, { message: "Get Create Country form" });
+    res.render('form', { title: "Create a Country" });
 }
 
 createCountry = function({ body }, res, next) {
@@ -40,8 +40,12 @@ getCountry = function({ params }, res, next) {
     res.statusJson(200, { message: "Get Specific Country" });
 }
 
-getEditCountryForm = function(req, res, next) {
-    res.statusJson(200, { message: "Get The Form For Editing A Country" });
+getEditCountryForm = function({ params }, res, next) {
+    Country.findById(params.countryid, (err, country) => {
+        if (err) { return res.json({ error: err }) }
+        if (!country) { return statusJson(400, { message: "Could not find the country" }) }
+        res.render('form', { title: "Edit a Country", country: country });
+    })
 }
 
 editCountry = function({ body, params }, res, next) {
@@ -55,7 +59,6 @@ editCountry = function({ body, params }, res, next) {
             res.statusJson(201, {
                 message: "Updated Country",
                 country: updatedCountry,
-
             });
         })
     })
