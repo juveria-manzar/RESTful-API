@@ -4,7 +4,7 @@ const Country = mongoose.model('Country')
 getCountries = function(req, res, next) {
     Country.find((err, countries) => {
         if (err) { return res.json({ error: err }) }
-        res.statusJson(200, {
+        res.json({
             message: "Getting all countries",
             countries: countries
         });

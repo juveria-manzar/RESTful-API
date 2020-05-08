@@ -5,7 +5,7 @@ let countryCtrl = require('../controllers/countries')
 
 
 router.route('/countries/new')
-    .get(countryCtrl.getCountries);
+    .get(countryCtrl.getCountryForm);
 
 router.route('/countries/:countryid/edit')
     .get(countryCtrl.getEditCountryForm)

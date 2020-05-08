@@ -8,6 +8,7 @@ var logger = require('morgan');
 require('./api/models/db');
 var indexRouter = require('./mvc/routes/index');
 var apiRouter = require('./api/routes/index');
+var countryRouter = require('./mvc/routes/countries');
 
 var app = express();
 
@@ -35,7 +36,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
-
+app.use('/countries', countryRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
