@@ -1,0 +1,11 @@
+<%- include('partials/header.ejs'); %>
+
+
+    <a href="/api/countries/<%= country._id %>/edit" class="btn">Edit Country</a>
+
+    <form class="inline" action="/countries/<%= country._id %>?_method=DELETE" method="post">
+        <input class="btn" type="submit" value="Remove Country From API">
+    </form>
+
+
+    <%- include('partials/footer.ejs'); %>
