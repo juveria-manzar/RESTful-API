@@ -9,16 +9,11 @@ router.route('/countries/new')
 
 router.route('/countries/:countryid/edit')
     .get(countryCtrl.getEditCountryForm)
-
-
 router.route('/countries/:countryid')
     .get(countryCtrl.getCountry)
     .put(countryCtrl.editCountry)
     .delete(countryCtrl.deleteCountry)
-
 router.route('/countries')
     .get(countryCtrl.getCountries)
     .post(countryCtrl.createCountry)
-
-
 module.exports = router;
